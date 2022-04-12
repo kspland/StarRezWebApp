@@ -1,0 +1,107 @@
+﻿@using RL.Models;
+
+@model  IEnumerable<UpdateFloorNameCustomRoomBase>
+
+
+@{
+    ViewBag.Title = "UpdateFloorNameRoomBase";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateFloorNameRoomBase</h2>
+
+<body>
+    <div>
+        <p>This program  updates the Floor Name stored on the RoomBase level on CustomString1 via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Building</th>
+                    <th>RoomBaseID</th>
+                    <th>RoomName</th>
+                    <th>FloorName</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>Acadian Hall</td>
+                    <td>6</td>
+                    <td>Acdian 0124</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Cedar Hall</td>
+                    <td>13513</td>
+                    <td>Cedar 1109A</td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>Broussard Hall</td>
+                    <td>7132</td>
+                    <td>Broussard Hall 0134</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Blake Hall</td>
+                    <td>460</td>
+                    <td>Blake 0155</td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateFloorNameRoomBase", "ResEd", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>Building</th>
+                    <th>RoomBaseID</th>
+                    <th>RoomName</th>
+                    <th>FloorName</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (UpdateFloorNameCustomRoomBase F in Model)
+                {
+                    <tr>
+                        <td>@F.Building</td>
+                        <td>@F.RoomBaseID</td>
+                        <td>@F.RoomName</td>
+                        <td>@F.FloorName</td>
+                        <td>@F.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+</body>

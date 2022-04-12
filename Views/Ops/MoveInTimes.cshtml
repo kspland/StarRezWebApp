@@ -1,0 +1,112 @@
+﻿@using RL.Models;
+@model IEnumerable<RoomBase>
+
+@{
+    ViewBag.Title = "MoveInTimes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MoveInTimes</h2>
+
+<body>
+    <div>
+        <p>This program adds the Move In Time to CustomString6 on the RoomBase level. A CSV file is used to update the fields
+            consisting of a RoomBaseID,RoomBaseDescription,CustomString6, RoomLocationDescription2,Status. An example of the CSV
+            file is listed below. 
+        </p>
+        <br />
+        <hr />
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>RoomBaseID</th>
+                <th>RoomBaseDescription</th>
+                <th>CustomString6</th>
+                <th>RoomLocationDescription2</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <th>2389</th>
+                <th>Louise Garig 0202</th>
+                <th>9AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>2390</th>
+                <th>Louise Garig 0203</th>
+                <th>9:15AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>2391</th>
+                <th>Louise Garig 0204</th>
+                <th>9:15AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>2399</th>
+                <th>Louise Garig 0301</th>
+                <th>9AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>2400</th>
+                <th>Louise Garig 0302</th>
+                <th>9:15AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>2409</th>
+                <th>Louise Garig 0311</th>
+                <th>10AM</th>
+                <th>Louise Garig Hall</th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
+    
+   <div>
+       @using(Html.BeginForm("MoveInTimes","Ops",FormMethod.Post, new { enctype = "multipart/form-data"}))
+       {
+           <input type="file" name="postedFile" />
+           <input type="submit" value="Import" />
+           <p> Enter your PawsID  <input type="text"name="UserName" /></p>
+           <p> Enter your Password<input type="password"  name="Password"/></p>
+       }
+   </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <hr />
+            <table class="table table-bordered table-hover">
+
+                <tr>
+                    <th>RoomBaseID</th>
+                    <th>RoomBase Description</th>
+                    <th>CustomString6</th>
+                    <th>Room Location Description2</th>
+                    <th> Status</th>
+                </tr>
+                @foreach( RoomBase R in Model)
+                {
+                    <tr>
+                        <td>@R.RoomBaseID</td>
+                        <td>@R.RoomBaseDescription</td>
+                        <td>@R.CustomString6</td>
+                        <td>@R.RoomLocationDescription2</td>
+                        <td>@R.Status</td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    <div>
+        <br />
+        <hr />
+        <p> </p>
+    </div>
+</body>

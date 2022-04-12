@@ -1,0 +1,132 @@
+﻿@using RL.Models
+@model IEnumerable<DeleteTransactions>
+
+@{
+    ViewBag.Title = "DeleteTransactions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteTransactions</h2>
+
+<body>
+    <div>
+        <p>This program deletes Transactions via a CSV file. This will delete transactions from the account. Once deleted Transaction will no longer be in the Database. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+
+    
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryID</th>
+                    <th>TermSessionDescription</th>
+                    <th>TransactionID</th>
+                    <th>ChargeGroupAbbreviation</th>
+                    <th>ChargeGroupDescription</th>
+                    <th>ChargeItemID</th>
+                    <th>Amount</th>
+                    <th>ChargeItemDescription</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>On Campus Housing Contract 2021-2022</td>
+                    <td>310461</td>
+                    <td>RCHAR</td>
+                    <td>Rent Charges - ResHalls ECA WCA NGW</td>
+                    <td>6922</td>
+                    <td>5125</td>
+                    <td>NG2B2 Apt 2BR-Private-NGW </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>On Campus Housing Contract 2021-2022</td>
+                    <td>310461</td>
+                    <td>RCHAR</td>
+                    <td>Rent Charges - ResHalls ECA WCA NGW</td>
+                    <td>6922</td>
+                    <td>5125</td>
+                    <td>NG2B2 Apt 2BR-Private-NGW </td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>On Campus Housing Contract 2021-2022</td>
+                    <td>310461</td>
+                    <td>RCHAR</td>
+                    <td>Rent Charges - ResHalls ECA WCA NGW</td>
+                    <td>6922</td>
+                    <td>5125</td>
+                    <td>NG2B2 Apt 2BR-Private-NGW </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>On Campus Housing Contract 2021-2022</td>
+                    <td>310461</td>
+                    <td>RCHAR</td>
+                    <td>Rent Charges - ResHalls ECA WCA NGW</td>
+                    <td>6922</td>
+                    <td>5125</td>
+                    <td>NG2B2 Apt 2BR-Private-NGW </td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <hr />
+            <br />
+            @using (Html.BeginForm("DeleteTransactions", "Business", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="postedFile" />
+                <input type="submit" value="Import" />
+                <p>Enter your PawsID <input type="text" name="username" /></p>
+                <p>Enter your Password<input type="password" name="password" /></p>
+            }
+        </div>
+
+        <div>
+
+            @if (Model.Count() > 0)
+            {
+
+                <table class="table table-bordered table-bordered">
+                    <tr>
+                        <th>Entry ID</th>
+                        <th>Term Session Description</th>
+                        <th>TransactionID</th>
+                        <th>Charge Group Description</th>
+                        <th>Charge Item Description</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                    @foreach (DeleteTransactions D in Model)
+                    {
+                        <tr>
+
+                            <td>@D.EntryID</td>
+                            <td>@D.TermSessionDescription</td>
+                            <td>@D.TransactionID</td>
+                            <td>@D.ChargeGroupDescription</td>
+                            <td>@D.ChargeItemDescription</td>
+                            <td>@D.Amount</td>
+                            <td>@D.Status</td>
+                        </tr>
+
+                    }
+
+                </table>
+            }
+        </div>
+    <div>
+
+    </div>
+</body>

@@ -1,0 +1,122 @@
+﻿@using RL.Models;
+
+@model IEnumerable<DeleteApps>
+
+
+@{
+    ViewBag.Title = "DeleteApps";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteApps</h2>
+
+<body>
+    <div>
+        <p>This program deletes EntryApplications via a CSV file. This will allow the student access to the room and building StarRez. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryApplicationID</th>
+                    <th>EntryID</th>
+                    <th>ApplicationStatusID</th>
+                    <th>ApplicationStatusDescription</th>
+                    <th>TermID</th>
+                    <th>TermDescription</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>130347</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>428</td>
+                    <td>Undergrad Housing 2020-2021</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120578</td>
+                    <td>46278</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>428</td>
+                    <td>Undergrad Housing 2020 - 2021</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>120628</td>
+                    <td>45137</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>428</td>
+                    <td>Undergrad Housing 202- 2021</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120641</td>
+                    <td>41125</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>430</td>
+                    <td>Undergrad Housing 2020 - 2021</td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("DeleteApps", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>Entry Application ID</th>
+                    <th>EntryID ID</th>
+                    <th>Application Status ID</th>
+                    <th>Appliation Status</th>
+                    <th>Term Description</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (DeleteApps D in Model)
+                {
+                    <tr>
+                       
+                        <td>@D.EntryApplicationID</td>
+                        <td>@D.EntryID</td>
+                        <td>@D.ApplicationStatusID</td>
+                        <td>@D.ApplicationStatusDescription</td>
+                        <td>@D.TermDescription</td>
+                        <td>@D.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+   
+
+</body>

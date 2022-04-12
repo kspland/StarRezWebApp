@@ -1,0 +1,129 @@
+﻿@using RL.Models;
+
+@model IEnumerable<UpdateNonActivePaidApp>
+
+
+@{
+    ViewBag.Title = "UpdateAppCompleteDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateAppCompleteDate</h2>
+
+<body>
+    <div>
+        <p>This program updates the Complete Date with the Received Fee Date and Change status to Active and check the App Fee Online via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryApplicationID</th>
+                    <th>EntryID</th>
+                    <th>ApplicationStatusID</th>
+                    <th>ApplicationStatusDescription</th>
+                    <th>TermDescription</th>
+                    <th>ReceivedFeeDate</th>
+                    <th>ReceivedFeeAmount</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>144816</td>
+                    <td>72631</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <th>On Campus Housing Contract 2021 - 2022</th>
+                    <td>12/14/2020 23:44</td>
+                    <td>-75</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120578</td>
+                    <td>46278</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>Undergrad Housing 2020 Spring</td>
+                    <td>12/7/2020 15:06</td>
+                    <td>-75</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>120628</td>
+                    <td>45137</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>On Campus Housing  2021 Spring</td>
+                    <td>12/7/2020 16:01</td>
+                    <td>-75</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120641</td>
+                    <td>41125</td>
+                    <td>1</td>
+                    <td>Incomplete</td>
+                    <td>On Campus Housing 2021-2022</td>
+                    <td>12/9/2020 15:24</td>
+                    <td>-75</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateAppCompleteDate", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>Entry Application ID</th>
+                    <th>EntryID </th>
+                    <th>Application Status ID</th>
+                    <th>Appliation Status</th>
+                    <th>Term Description</th>
+                    <th>Received Fee Date</th>
+                    <th>Received Fee Amount</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (UpdateNonActivePaidApp D in Model)
+                {
+                    <tr>
+
+                        <td>@D.EntryApplicationID</td>
+                        <td>@D.EntryID</td>
+                        <td>@D.ApplicationStatusID</td>
+                        <td>@D.ApplicationStatusDescription</td>
+                        <td>@D.TermDescription</td>
+                        <td>@D.ReceivedFeeDate</td>
+                        <td>@D.ReceivedFeeAmount</td>
+                        <td>@D.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    
+</body>

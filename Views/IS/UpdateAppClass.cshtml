@@ -1,0 +1,124 @@
+﻿@using RL.Models;
+
+@model IEnumerable<UpdateAppClassification>
+
+@{
+    ViewBag.Title = "UpdateAppClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateAppClass</h2>
+
+<body>
+    <div>
+        <p>This program updates the classification on an Application via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryApplicationID</th>
+                    <th>EntryID</th>
+                    <th>ClassificationID</th>
+                    <th>ClassificationDescription</th>
+                    <th>TermDescription</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>144816</td>
+                    <td>72631</td>
+                    <td>1</td>
+                    <td>New</td>
+                    <th>On Campus Housing Contract 2021 - 2022</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120578</td>
+                    <td>46278</td>
+                    <td>2</td>
+                    <td>Continuing</td>
+                    <td>Undergrad Housing 2020 Spring</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>120628</td>
+                    <td>45137</td>
+                    <td>1</td>
+                    <td>New</td>
+                    <td>On Campus Housing  2021 Spring</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>120641</td>
+                    <td>41125</td>
+                    <td>2</td>
+                    <td>Continuing</td>
+                    <td>On Campus Housing 2021-2022</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateAppClass", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>Entry Application ID</th>
+                    <th>EntryID </th>
+                    <th>Classification ID</th>
+                    <th>Classification Description</th>
+                    <th>Term Description</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (UpdateAppClassification A in Model)
+                {
+                    <tr>
+
+                        <td>@A.EntryApplicationID</td>
+                        <td>@A.EntryID</td>
+                        <td>@A.ClassificationID</td>
+                        <td>@A.ClassificationDescripton</td>
+                        <td>@A.TermDescription</td>
+                        <td>@A.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    <div>
+        @ViewData["A"]
+        <p></p>
+        @ViewData["B"]
+        <p></p>
+        @ViewData["C"]
+        <p></p>
+        @ViewData["D"]
+        <p></p>
+        @ViewData[""]
+    </div>
+</body>

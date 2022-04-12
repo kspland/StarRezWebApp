@@ -1,0 +1,46 @@
+Datum;Jaar;Mnd;Dag;Ticvanri;Ticvan;Richt;Hm;Oorz;Begt;StUur;StMin;Eindt;EindUur;EindMin;Zwaarte;GemLeng;Duur;Dagnr;Weeknr;Dagsoort;G_L;Provinci;Routelet;Routenum;Routeoms;Naam_Van;Naam_Naa;Hm_Van;Hm_Naar;Traj_Van;Traj_Naa;Flricht;FilesAgvWerk;IdWerk
+
+20180101;2018;1;1;76122;7612;2;41,1;0D8;1342;13;42;1358;13;58;37,45;2274,29;16,46;1;1;7;2,27;8;A;16;A16;Klaverpolder;'s-Gravendeel;43,1;41,1;Breda;Rotterdam;Rotterdam; ;
+
+20180101;2018;1;1;80021;8002;1;42,6;0D8;1615;16;15;1632;16;32;45,4;2619,23;17,33;1;1;7;2,61;6;A;2;A2;Abcoude;Vinkeveen;40,6;42,6;Utrecht;Amsterdam;Utrecht; ; 
+
+20180101;2018;1;1;83301;8330;1;52,4;313;1500;15;0;1523;15;23;59,21;2509,18;23,6;1;1;7;2,5;8;A;27;A27;Everdingen;Lexmond;54,4;52,4;Gorinchem;Utrecht;Gorinchem; ; 
+
+20180102;2018;1;2;70222;7022;2;23,4;9CE;1723;17;23;1802;18;2;155,55;3913,2;39,75;2;1;1;3,91;7;A;1;A1;Naarden-Vesting;Blaricum;20,4;23,4;Amsterdam;Amersfoort;Amersfoort; ; 
+
+20180102;2018;1;2;70291;7029;1;31,1;0B4;1325;13;25;1340;13;40;30,5;2000;15,25;2;1;1;2;6;A;1;A1;Eembrugge;Soest;33,1;31,1;Amsterdam;Amersfoort;Amsterdam; ; 
+
+20180102;2018;1;2;70301;7030;1;35,3;317;1337;13;37;1352;13;52;41,6;2761,06;15,06;2;1;1;2,76;6;A;1;A1;Bunschoten;Eembrugge;37,3;35,3;Amsterdam;Amersfoort;Amsterdam; ; 
+
+20180102;2018;1;2;70301;7030;1;36,1;0B4;1300;13;0;1329;13;29;91,81;3072,5;29,88;2;1;1;3,07;6;A;1;A1;Bunschoten;Eembrugge;38,1;36,1;Amsterdam;Amersfoort;Amsterdam; ; 
+
+20180102;2018;1;2;70492;7049;2;49,1;0B3;2132;21;32;2221;22;21;99,23;2000;49,61;2;1;1;2;5;A;1;A1;Hoevelaken;Barneveld;47,1;49,1;Amsterdam;Apeldoorn;Apeldoorn; ; 
+
+20180102;2018;1;2;72092;7209;2;25,7;0B4;1738;17;38;1753;17;53;30,56;2000;15,28;2;1;1;2;7;A;10;A10;Osdorp;Amsterdam-Sloterdijk;23,7;25,7;De Nieuwe Meer;Coenplein;Coenplein; ; 
+
+20180102;2018;1;2;74331;7433;1;46,2;2FD;1002;10;2;1104;11;4;124,46;2000;62,23;2;1;1;2;8;A;15;A15;Hoogvliet;Spijkenisse;48,2;46,2;Oostvoorne;Ridderkerk;Oostvoorne; ; 
+
+20180102;2018;1;2;74912;7491;2;123,2;4A6;1602;16;2;1714;17;14;280,05;3887,78;72,03;2;1;1;3,88;5;A;15;A15;Geldermalsen;Wadenoijen;121,2;123,2;Gorinchem;Nijmegen;Nijmegen; ; 
+
+20180102;2018;1;2;76271;7627;1;20,8;105;1308;13;8;1320;13;20;25,2;2000;12,6;2;1;1;2;8;A;16;A16;Kralingen;Van Brienenoordbrug;18,8;20,8;Breda;Rotterdam;Breda; ; 
+
+20180102;2018;1;2;77202;7720;2;6,5;0F3;1228;12;28;1301;13;1;66,23;2000;33,11;2;1;1;2;10;A;17;A17;Noordhoek;Industriegebied Moerdijk;8,5;6,5;Roosendaal;Dordrecht;Dordrecht; ; 
+
+20180102;2018;1;2;79181;7918;1;159,9;313;1742;17;42;1744;17;44;5,2;2000;2,6;2;1;1;2;10;A;2;A2;Batadorp;De Hogt;157,9;159,9;Maastricht-Noord;Eindhoven;Maastricht-Noord; ; 
+
+20180102;2018;1;2;79392;7939;2;126,6;0D8;1721;17;21;1800;18;0;197,38;5031,01;39,23;2;1;1;5,03;10;A;2;A2;Boxtel;Boxtel-Noord;129,6;126,6;Eindhoven;'s-Hertogenbosch;'s-Hertogenbosch; ; 
+
+20180102;2018;1;2;80981;8098;1;31,2;313;1809;18;9;1810;18;10;3,16;2000;1,58;2;1;1;2;8;A;20;A20;Terbregseplein;Rotterdam-Centrum;33,2;31,2;Hoek van Holland;Gouda;Hoek van Holland; ; 
+
+20180102;2018;1;2;80981;8098;1;32;313;1731;17;31;1805;18;5;88,08;2548,21;34,56;2;1;1;2,54;8;A;20;A20;Terbregseplein;Rotterdam-Centrum;34;32;Hoek van Holland;Gouda;Hoek van Holland; ; 
+
+20180102;2018;1;2;83071;8307;1;20,2;0D8;1109;11;9;1123;11;23;31,15;2214,45;14,06;2;1;1;2,21;10;A;27;A27;Hank;Hooipolder;22,2;20,2;Breda;Gorinchem;Breda; ; 
+
+20180102;2018;1;2;83471;8347;1;70,9;2FD;1339;13;39;1434;14;34;110,9;2000;55,45;2;1;1;2;6;A;27;A27;Rijnsweerd;Lunetten;77,9;70,9;Gorinchem;Utrecht;Gorinchem; ; 
+
+20180102;2018;1;2;86751;8675;1;23;0B4;1435;14;35;1523;15;23;146,5;3000;48,83;2;1;1;3;8;A;29;A29;Oud-Beijerland;Numansdorp;20;23;Bergen op Zoom;Rotterdam;Bergen op Zoom; ; 
+
+20180102;2018;1;2;86751;8675;1;23;313;1532;15;32;1543;15;43;33,1;3000;11,03;2;1;1;3;8;A;29;A29;Oud-Beijerland;Numansdorp;20;23;Bergen op Zoom;Rotterdam;Bergen op Zoom; ; 
+
+20180102;2018;1;2;91941;9194;1;50,3;313;1741;17;41;1801;18;1;41,2;2000;20,6;2;1;1;2;8;A;4;A4;Prins Clausplein;Rijswijk;48,3;50,3;Antwerpen;Amsterdam;Antwerpen; ; 
+

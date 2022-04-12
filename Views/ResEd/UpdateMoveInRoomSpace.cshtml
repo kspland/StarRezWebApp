@@ -1,0 +1,107 @@
+﻿@using RL.Models;
+
+@model IEnumerable<UpdateMoveInR>
+
+
+@{
+    ViewBag.Title = "UpdateMoveInRoomSpace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateMoveInRoomSpace</h2>
+
+<body>
+    <div>
+        <p>This program  updates the Move In Time stored on the RoomSpace level on CustomString5 via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Building</th>
+                    <th>RoomSpaceID</th>
+                    <th>RoomSpace</th>
+                    <th>MoveInTime</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>Acadian Hall</td>
+                    <td>6</td>
+                    <td>Acdian 0124-1</td>
+                    <td>11:00 AM August 15 2020</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Cedar Hall</td>
+                    <td>13513</td>
+                    <td>Cedar 1109A-1</td>
+                    <td>10:00 AM August 15 2020 </td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>Broussard Hall</td>
+                    <td>7132</td>
+                    <td>Broussard Hall 0134-1</td>
+                    <td>10:00 AM August 15 2020</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Blake Hall</td>
+                    <td>460</td>
+                    <td>Blake 0155-1</td>
+                    <td>9:30AM August 15 2020</td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateMoveInRoomSpace", "ResEd", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>Building</th>
+                    <th>RoomSpace ID</th>
+                    <th>Room Space Description</th>
+                    <th>Move In Time</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (UpdateMoveInR M in Model)
+                {
+                    <tr>
+                        <td>@M.Building</td>
+                        <td>@M.RoomSpaceID</td>
+                        <td>@M.RoomSpace</td>
+                        <td>@M.MoveInTime</td>
+                        <td>@M.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+</body>

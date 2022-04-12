@@ -1,0 +1,100 @@
+﻿@using RL.Models;
+
+@model  IEnumerable<HideRoomSpace>
+
+
+@{
+    ViewBag.Title = "HideRoomSpaces";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HideRoomSpaces</h2>
+
+<body>
+    <div>
+        <p>This program hides the RoomSpace via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+    <div>
+        <p>
+            This application chanes the Entry Application Sttus on applications. It uses a CSV file containing the
+            Entry Application ID, EntryID, EntryStatus Code and Status. The Headings must be spelled and placed in the correct order.
+
+        </p>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>RoomSpaceID</th>
+                <th>RoomSpaceDescription</th>
+                <th>RecordTypeEnum</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Acadian 0136-2</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6593</td>
+                <td>West Campus 0707A-1</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11740</td>
+                <td>Spruce 4422-2</td>
+                <td>8</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>11832</td>
+                <td>Bayou 2049-A</td>
+                <td>11</td>
+                <td>Status</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("HideRoomSpaces", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <div>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>RoomSpaceID</th>
+                        <th>Description</th>
+                        <th>RecordTypeEnum</th>
+                        <th>Status</th>
+                    </tr>
+
+                    @foreach (HideRoomSpace H in Model)
+                    {
+                        <tr>
+                            <td>@H.RoomSpaceID</td>
+                            <td>@H.Description</td>
+                            <td>@H.RecordTypeEnum</td>
+                            <td>@H.Status</td>
+                        </tr>
+
+                    }
+
+                </table>
+                
+            </div>
+        }
+    </div>
+</body>

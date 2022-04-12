@@ -1,0 +1,106 @@
+﻿@using RL.Models;
+
+@model IEnumerable<UpdateAppOnEntry>
+
+@{
+    ViewBag.Title = "UpdateApplicationOnEnry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateApplicationOnEnry</h2>
+
+<body>
+    <div>
+        <p>This program adds the Entry Application ID to the Entry via a csv file.</p>
+        <p>This allows the application status on the entry manager to  correctly </p>
+        <p>display the student current application status.</p>
+        <p>An exmaple of how the csv file is listed below.</p>
+        <p>The Column names must be exact and in the same order as the example below.</p>
+        <p></p>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>EntryID</th>
+                <th>EntryApplicationID</th>
+                <th>Term</th>
+                <th>Application Status</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+
+                <td>60234</td>
+                <td>11129</td>
+                <td>Under Graduate Housing Contract 2019-2020</td>
+                <td>Continue to Spring</td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td>56789</td>
+                <td>95345</td>
+                <td>Under Graduate Housing Contract 2019-2020</td>
+                <td>Checked out</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1575</td>
+                <td>94921</td>
+                <td>Family and Graduate Housing Fall 2019</td>
+                <td>Checked out</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>164098</td>
+                <td>65444</td>
+                <td>2</td>
+                <td>New</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateApplicationOnEntry", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Entry ID</th>
+                    <th>Entry Application ID</th>
+                    <th>Term </th>
+                    <th>Status</th>
+
+                </tr>
+
+                @foreach (UpdateAppOnEntry E in Model)
+                {
+                    <tr>
+                       <td>@E.EntryID</td>
+                       <td>@E.EntryApplicationID</td>
+                        <td>@E.Term</td>
+                        <td>@E.Status</td>
+                        
+
+
+
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    
+    
+
+</body>

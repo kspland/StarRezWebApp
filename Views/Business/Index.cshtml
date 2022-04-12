@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Business - Home </h2>
+
+<body>
+    <div>
+        <p>Res Life Operations site used to support functions within StarRez.</p>
+        <p>A table below contains the applications supported for Operations.</p>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Program</th>
+                <th>Application</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Create Charges</td>
+                <td>@Html.ActionLink("Create Charges", "AddCharges", "Business")</td>
+                <td>Creates Charges from CSV Template of Charge Item Data</td>
+            </tr>
+            <tr>
+                <td>hide ChargeItems</td>
+                <td>@Html.ActionLink("Hide Charge Items", "HideCharge", "Business") </td>
+                <td>In Progress</td>
+            </tr>
+            <tr>
+                <td>Update transaction comments</td>
+                <td>@Html.ActionLink("Update Transaction Comments", "TransactionCommentUpdate", "Business")</td>
+                <td>Update Comments on Transaction via CSV</td>
+            </tr>
+            <tr>
+                <td>Update Default RoomRate and Default Room Code</td>
+                <td>@Html.ActionLink("Update Default Room Code and Rate", "UpdateDefaultRoomRate", "Business")</td>
+                <td>Update Default room rate and code via CSV</td>
+            </tr>
+            <tr>
+                <td>Delete Transactions </td>
+                <td>@Html.ActionLink("Delete Transactions", "DeleteTransactions", "Business")</td>
+                <td>Delete Transactions via CSV</td>
+            </tr>
+
+           
+        </table>
+    </div>
+</body>

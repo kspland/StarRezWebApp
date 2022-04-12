@@ -1,0 +1,128 @@
+﻿@using RL.Models;
+@model IEnumerable<CreateCI>
+@{
+    ViewBag.Title = "AddCharges";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCharges</h2>
+
+<body>
+    <div>
+        <p>This program  creates Charge Items via a CSV file. </p>
+        <p> An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>ChargeGroupID</th>
+                <th>ChargeGroup</th>
+                <th>ChargeGroupAbbreviation</th>
+                <th>ChargeItem</th>
+                <th>TisCodeConversion</th>
+                <th>ChargeItemAbbreviation</th>
+                <th>GLSAccountCode</th>
+                <th>Objectcode</th>
+                <th>DefaultAmount</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Interim Rent Charges</td>
+                <td>ICHAR</td>
+                <td>Interim Rent - Cedar</td>
+                <td>HI31HSGR9</td>
+                <td>RHINCD</td>
+                <td>0005447WD</td>
+                <td>015W</td>
+                <td>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Rent Charges</td>
+                <td>RCHAR</td>
+                <td>NS2LO NR RH TD LRG 2-Suite-CDR  </td>
+                <td>HP31HSGR9</td>
+                <td>NSLOCD</td>
+                <td>0005447WD</td>
+                <td>015W</td>
+                <td>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>Rent Penalty ResHalls/E/W Spring 75</td>
+                <td>RPSPG</td>
+                <td>Rent Penalty SPRING-CDR  </td>
+                <td>HG31HSGR9</td>
+                <td>RPSPCD</td>
+                <td>0005447WD</td>
+                <td>015W</td>
+                <td>0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>164</td>
+                <td>Cancellation Fee RH/E/W</td>
+                <td>CNFRH</td>
+                <td>Cancellation Fee CNF-CDR</td>
+                <td>HG31HSGR9</td>
+                <td>RCNFCD</td>
+                <td>0005447WD</td>
+                <td>015W</td>
+                <td>0</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using(Html.BeginForm("AddCharges","Business",FormMethod.Post,new { enctype = "multipart/form-data"}))
+        {
+            <input type="file" name="postedFile"/>
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input  type="text" name="userName"/></p>
+            <p>Enter your Password<input  type="password" name="password"/></p>
+        }
+    </div>
+    <div>
+       @if (Model.Count() > 0)
+       {
+           <hr />
+           <table class="table table-bordered table-hover">
+
+               <tr>
+                   <th>Charge GroupID</th>
+                   <th>Charge Group</th>
+                   <th>Charge Group Abbreviation</th>
+                   <th>Charge Item</th>
+                   <th>Tis Code Conversion</th>
+                   <th>Charge Item Abbreviation</th>
+                   <th>GLS Account Code</th>
+                   <th>Object Code</th>
+                   <th> Default Amount</th>
+                   <th>Status</th>
+               </tr>
+               @foreach(CreateCI C in Model)
+               {
+                   <tr>
+                       <td>@C.ChargeGroupID</td> 
+                       <td>@C.ChargeGroup</td>
+                       <td>@C.ChargeGroupAbbreviation</td>
+                       <td>@C.ChargeItem</td>
+                       <td>@C.TISCodeConversion</td>
+                       <td>@C.ChargeItemAbbreviation</td>
+                       <td>@C.GLSAcctCode</td>
+                       <td>@C.Objectcode</td>
+                       <td>@C.DefaultAmount</td>
+                       <td>@C.Status</td>
+                   </tr>
+               }
+
+           </table>
+       }
+    </div>
+</body>

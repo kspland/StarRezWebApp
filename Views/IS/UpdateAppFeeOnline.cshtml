@@ -1,0 +1,87 @@
+﻿@using RL.Models;
+
+@model IEnumerable<EntryApp>
+
+
+@{
+    ViewBag.Title = "UpdateAppFeeOnline";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateAppFeeOnline</h2>
+
+<body>
+    <div>
+        <p>This program adds the App Fee Online(A) flag to the Entry Application</p>
+        <p>It uses a CSV file consisting of the EntryApplicationID, EntryID and Status</p>
+        <p><Bold>The Column names must be named exactly like the example and in the saem order.</Bold></p>
+        <br />
+
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th> EntryApplicationID</th>
+                <th>EntryID</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>11129</td>
+                <td>60234</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>95345</td>
+                <td>56789</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>94921</td>
+                <td>1575</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>164098</td>
+                <td>65444</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateAppFeeOnline", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <div>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Entry Application ID</th>
+                        <th>EntryID</th>
+                        <th>Status</th>
+                    </tr>
+
+                    @foreach (EntryApp E in Model)
+                    {
+                        <tr>
+                            <td>@E.EntryApplicationID</td>
+                            <td>@E.EntryID</td>  
+                            <td>@E.Status</td>
+                        </tr>
+
+                    }
+
+                </table>
+            </div>
+        }
+      </div> 
+
+    </body>

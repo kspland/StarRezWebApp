@@ -1,0 +1,152 @@
+﻿@using RL.Models;
+
+@model IEnumerable<_EarlyArrival>
+
+
+@{
+    ViewBag.Title = "EarlyArrival";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EarlyArrival</h2>
+
+<body>
+    <div>
+        <p>This program creates bookings for early arrival studetns via a csv file.</p>
+        <p>An exmaple of how the vsc file is listed below.</p>
+        <p>The Column names must be exact and in the same order as the example below.</p>
+        <p></p>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>EntryID</th>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>LSUID</th>
+                <th>CheckIn</th>
+                <th>CheckOut</th>
+                <th>Assignment</th>
+                <th>TermSessionID</th>
+                <th>RateSessionID</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+                <td>99854</td>
+                <td>Mouse</td>
+                <td>Minnie</td>
+                <td>89xxxxxx</td>
+                <td>8/17/2019</td>
+                <td>8/18/2019</td>
+                <td>East Campus 0307B-1</td>
+                <td></td>
+                <td></td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>952300</td>
+                <td>Duck</td>
+                <td>Donald</td>
+                <td>89xxxxxx</td>
+                <td>8/16/2019</td>
+                <td>8/18/2019</td>
+                <td>Cypress N 2812-1</td>
+                <td></td>
+                <td></td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>97055</td>
+                <td>Mouse</td>
+                <td>Mickey</td>
+                <td>89xxxxxx</td>
+                <td>8/15/2019</td>
+                <td>8/17/2019</td>
+                <td>Cedar 1103A-1</td>
+                <td></td>
+                <td></td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>Duck</td>
+                <td>Huey</td>
+                <td>89xxxxxx</td>
+                <td>8/16/2019</td>
+                <td>8/17/2019</td>
+                <td>Acadian</td>
+                <td></td>
+                <td></td>
+                <td>Status</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("EarlyArrival", "Ops", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Entry ID</th>
+                    <th>Last Name</th>
+                    <th>First name</th>
+                    <th>LSUID</th>
+                    <th>CheckIn Date</th>
+                    <th>CheckOut Date</th>
+                    <th>Assignment</th>
+                    <th>Term Session ID</th>
+                    <th>Rate Session ID</th>
+                    <th>Term-Comments</th>
+                    <th>BookingID</th>
+               
+                </tr>
+
+                @foreach (_EarlyArrival E in Model)
+                {
+                    <tr>
+                        <td>@E.EntryID</td>
+                        <td>@E.LastName</td>
+                        <td>@E.FirstName</td>
+                        <td>@E.LSUID</td>
+                        <td>@E.ActualCheckIn</td>
+                        <td>@E.CheckOut</td>
+                        <td>@E.Assignment</td>
+                        <td>@E.TermID</td>
+                        <td>@E.RateID</td>
+                        <td>@E.Term</td>
+                        <td>@E.BookingID</td>
+                       
+
+
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    <div>
+        @ViewData["a"]
+    </div>
+    <div>
+        <br />
+        <p> RoomSpaceID: @ViewData["RoomSpaceID"]</p>
+        <p>RoomTypeID: @ViewData["RoomType"]</p>
+        <p>RoomLocationID: @ViewData["RoomLocationID"]</p>
+    </div>
+    <div>
+        <p>
+            Error Message @ViewData["Z"]
+        </p>
+    </div>
+</body>

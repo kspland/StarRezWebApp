@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Operations Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Operations - Home</h2>
+
+<body>
+    <div>
+        <p>Res Life Operations site used to support functions within StarRez.</p>
+        <p>A table below contains the applications supported for Operations.</p>
+    </div>
+    
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Program</th>
+                <th>Application</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Update Move In Times</td>
+                <td>@Html.ActionLink("Update Move in Times", "MoveInTimes", "Ops")</td>
+                <td>Adds the Move In Time to CustomString6 on the RoomBase using a CSV file.</td>
+            </tr>
+            <tr>
+                <td>Update Booking Status</td>
+                <td>@Html.ActionLink("Update Booking Status", "UpdateBookingStatus", "Ops")</td>
+                <td>Allows the Booking Status to be updated by a BookingID and EntryStatus value</td>
+            </tr>
+            
+            <tr>
+                <td>Add Apartment Term Length</td>
+                <td>@Html.ActionLink("Add Apartment Term Length to Application", "UpdateAptTermLength", "Ops")</td>
+                <td>Add Enrollment Data  from LSUID, First Name, Last Name and Gender</td>
+            </tr>
+        </table>
+    </div>
+</body>

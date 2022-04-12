@@ -1,0 +1,179 @@
+﻿@using RL.Models;
+
+@model  IEnumerable<AppStatus>
+
+@{
+    ViewBag.Title = "ChangeAppStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangeAppStatus</h2>
+
+<body>
+    <div>
+        <p>This program  adds the Appliation Type to the Entry Application via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Application Status</th>
+                <th>Description</th>
+                <th>Comments</th>
+
+
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Active</td>
+                <td>Paid or Exempt Application</td>
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Cancelled</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Deleted</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Reinstated</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Withdrawn</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Checked Out</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Incomplete</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Cont to Spring</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Cont to Fall</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Cont to Summer</td>
+                <td>Comments</td>
+
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Complete</td>
+                <td>Comments</td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        This application chanes the Entry Application Sttus on applications. It uses a CSV file containing the
+        Entry Application ID, EntryID, EntryStatus Code and Status. The Headings must be spelled and placed in the correct order.
+
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>EntryApplicationID</th>
+                <th>EntryID</th>
+                <th>ApplicationStatus</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+                <td>99854</td>
+                <td>18498</td>
+                <td>2</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>952300</td>
+                <td>18503</td>
+                <td>4</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>97055</td>
+                <td>29783</td>
+                <td>8</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>90000</td>
+                <td>1032</td>
+                <td>11</td>
+                <td>Status</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("ChangeAppStatus", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <div>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>Entry Application ID</th>
+                        <th>EntryID</th>
+                        <th>Application Status</th>
+                        <th>Status</th>
+                    </tr>
+
+                    @foreach (AppStatus A in Model)
+                    {
+                        <tr>
+                            <td>@A.EntryApplicationID</td>
+                            <td>@A.EntryID</td>
+                            <td>@A.ApplicationStatus</td>
+                            <td>@A.Status</td>
+                        </tr>
+
+                    }
+
+                </table>
+            </div>
+        }
+    </div>
+    <div>
+        
+    </div>
+</body>

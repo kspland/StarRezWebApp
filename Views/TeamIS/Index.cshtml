@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<body>
+<div>
+    <p>Res Life TeamIS site used to support functions within StarRez.</p>
+    <p>A table below contains the applications supported for Residential Education.</p>
+</div>
+
+<div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Program</th>
+            <th>Application</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Add or Update Card Access Pin</td>
+            <td>@Html.ActionLink("Add or Update Card Access Pins", "UpdatePins", "TeamIS")</td>
+            <td>Uses a csv file to update or add card access pins for Entries in StarRez.</td>
+        </tr>
+        <tr>
+            <td>Update the Occupancy Start date on a booking via CSV</td>
+            <td>@Html.ActionLink("Update the Booking CheckIn Date(Occupancy Start Date)", "UpdateBookingCheckInDate", "TeamIS")</td>
+            <td>Uses a csv file to update the Occupancy Start Date on a Booking via CSV file. This will allow access to Room and Building earlier if udpated</td>
+        <tr>
+            <td>Update the Occupancy End date on a booking via CSV</td>
+            <td>@Html.ActionLink("Update the Booking CheckOut Date(Occupancy End Date","UpdateBookingCheckOutDate","TeamIS")</td>
+            <td>uses a csv file to update the Occupancy End Date on a Booking via CSV file. This will allow access to Room and Building later than orginal Booking.</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>Deletes Entry Application from System</td>
+            <td>@Html.ActionLink("Delete EntryApplication","DeleteApps","IS")</td>
+            <td>Uses a CSV file to delete Entry Applicaitions. SHould be used for Incomplete Applications. Make sure no payment exist.</td>
+        </tr>
+    </table>
+</div>
+</body>

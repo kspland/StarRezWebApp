@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IS - Home</h2>
+
+<body>
+<div>
+    <p>Res Life Info Systems site used to support functions within StarRez.</p>
+    <p>A table below contains the applications supported for Information Systems</p>
+</div>
+
+<div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Program</th>
+            <th>Application</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Update Move In Times</td>
+            <td>@Html.ActionLink("Update Move in Times", "MoveInTimes", "Ops")</td>
+            <td>Adds the Move In Time to CustomString6 on the RoomBase using a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Booking Status</td>
+            <td>@Html.ActionLink("Update Booking Status", "UpdateBookingStatus", "Ops")</td>
+            <td>Allows the Booking Status to be updated by a BookingID and EntryStatus value</td>
+        </tr>
+        <tr>
+            <td>Update Housing Type on Applications</td>
+            <td>@Html.ActionLink("Update Housing Type on Application", "HousingType", "IS")</td>
+            <td>Updates the Housing Type on Resident Application from a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update  Application Status</td>
+            <td>@Html.ActionLink("Change Application Staus via csv", "ChangeAppStatus", "IS")</td>
+            <td>Updates the Housing Type on Resident Application from a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update  Application Status</td>
+            <td>@Html.ActionLink("Set the App Fee Online(A) to True on Applications", "UpdateAppFeeOnline", "IS")</td>
+            <td>Updates the Housing Type on Resident Application from a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Create Early Arrival Bookings</td>
+            <td></td>
+            <td>Create Early Arrival Bookings from a csv file provided from Res Life Conference and Contracts.</td>
+        </tr>
+        <tr>
+            <td>Update  Application Status</td>
+            <td>@Html.ActionLink("Set the Undergraduate Payment Flag to A    App Fee ONLY IN OFFICE/ONLINE", "UpdateUnderGradPaymentFlagAppFee", "IS")</td>
+            <td>Updates the Housing Type on Resident Application from a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Add Web Screen Name to Entry</td>
+            <td>@Html.ActionLink("Add WebScreen Name to Entry", "WebName", "IS")</td>
+            <td>Adds the WebScreen to Entry from a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Application Type to Entry Application</td>
+            <td>@Html.ActionLink("Add Application Type to Entry Application CustomField", "AddAppType", "IS")</td>
+            <td>Update the Application Type to the Entry Application Custom Field via CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Gender to Entry Application</td>
+            <td>@Html.ActionLink("Update the Gender on Entry Application CustomField", "AddAppGender", "IS")</td>
+            <td>Updates the student gender on the Entry Application Custom Field via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update the Enrollment Class on the Entry Application</td>
+            <td>@Html.ActionLink("Update the Enrollment Class on Entry Application", "AddAppEC", "IS")</td>
+            <td>Updates the student Enrollment Class on the Entry Application Custom Field via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update the WebScreen Name on Student Entry</td>
+            <td>@Html.ActionLink("Update the Web Screen Name on Student Entry", "WebName", "IS")</td>
+            <td>Updates the student Web Screen Name via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update the Term on an Entry</td>
+            <td>@Html.ActionLink("Update the Term on an Entry Application", "UpdateAppTerm", "IS")</td>
+            <td>Updates the Entry Application Term via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update the Checkout Date on Booking</td>
+            <td>@Html.ActionLink("Update the Booking on Custom Date 2 on Booking", "UpdateBookingCODate", "IS")</td>
+            <td>Updates Custom Date 2(Check out Date)  on Booking via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Booking Occupancy End Date, Contract End Date and Booking End Reason to O</td>
+            <td>@Html.ActionLink("Update the Occupancy End Date, Contract End Date and Booking End Reason to O", "BookingC19", "IS")</td>
+            <td>Update Occupancy & Contract End Date and changes the Booking End Reason to O on the Booking via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Application Status to Cancelled, add cancel date, with reason</td>
+            <td>@Html.ActionLink("Update the Application to Cancel status,with Cancel date and reason", "UpdateAppC19", "IS")</td>
+            <td>Update Application status to cancel, add cancel date, with reason via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update the Facility Number and Building Abbreviation on the RoomBase.</td>
+            <td>@Html.ActionLink("Update the Facility Number and Building Abbreviation custom fields.", "UpdateFacNumberandBldAbb", "IS")</td>
+            <td>Update the builiding abbreviation and Facility number via a CSV file.</td>
+        </tr>
+        <tr>
+            <td>Delete EntryApplications From StarRez</td>
+            <td>@Html.ActionLink("Delete the EntryApplication from Entry Application ID", "DeleteApps", "IS")</td>
+            <td>Delete the EntryApplication on a Student Entry via CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Undergrad Payment Flag on EntryApplications Payment Flag on Entry Application Custom Field.</td>
+            <td>@Html.ActionLink("Update undergrad Payment flag ", "UpdateUndergradAppPaymentCustomField", "IS")</td>
+            <td>Update the Undergrad Payment Flag on (list the undergradpayment flag on the app)  the EntryApplication on a Student Entry Application via CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Building Preference on EntryApplications on Entry Application CustomField</td>
+            <td>@Html.ActionLink("Update Building Preference on an Application ", "UpdateBuildingPreference", "IS")</td>
+            <td>Update the Building Preference on the EntryApplication on a Student Entry Application via CSV file.</td>
+        </tr>
+
+        <tr>
+            <td>Update Classification on an EntryApplications.</td>
+            <td>@Html.ActionLink("Update Classification on an Application ", "UpdateAppClass", "IS")</td>
+            <td>Update the classification on the EntryApplication  via CSV file.</td>
+        </tr>
+        <tr>
+            <td>Update Classification on an EntryApplications.</td>
+            <td>@Html.ActionLink("Update Occupancy End Date Booking ", "UpdateBookingEndDate", "IS")</td>
+            <td>Update the Occupancy End Date on the Booking  via CSV file.</td>
+        </tr>
+    </table>
+</div>
+</body>

@@ -1,0 +1,117 @@
+﻿@using RL.Models;
+
+@model IEnumerable<UpdateBookingCIDate>
+
+
+@{
+    ViewBag.Title = "UpdateBookingCheckInDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateBookingCheckInDate</h2>
+
+<body>
+    <div>
+        <p>This program updates the Check In Date(Occupancy Start Date) via a CSV file. This will allow the student access to the room and building StarRez. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryID</th>
+                    <th>BookingID</th>
+                    <th>NewCheckInDate</th>
+                    <th>Building</th>
+                    <th>RoomSpace</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>51134</td>
+                    <td>130347</td>
+                    <td>7/31/2020</td>
+                    <td>West Campus Apts</td>
+                    <td>West Campus 0604B-1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>46278</td>
+                    <td>120578</td>
+                    <td>7/31/2020</td>
+                    <td>NGW Bayou Hall</td>
+                    <td>Bayou 4031-A</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>45137</td>
+                    <td>120628</td>
+                    <td>7/31/2020</td>
+                    <td>NGW Bayou Hall</td>
+                    <td>NGW Bayou 3055-B</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>41125</td>
+                    <td>120641</td>
+                    <td>7/31/2020</td>
+                    <td>NGW Bayou Hall</td>
+                    <td>Bayou 3006-A</td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateBookingCheckInDate", "TeamIS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>EntryID</th>
+                    <th>Booking ID</th>
+                    <th>Check In Date</th>
+                    <th>Building</th>
+                    <th>RoomSpace</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (UpdateBookingCIDate B in Model)
+                {
+                    <tr>
+                        <td>@B.EntryID</td>
+                        <td>@B.BookingID</td>
+                        <td>@B.NewCheckInDate</td>
+                        <td>@B.Building</td>
+                        <td>@B.RoomSpace</td>
+                        <td>@B.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    <div>
+
+    </div>
+</body>

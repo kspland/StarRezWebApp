@@ -1,0 +1,120 @@
+﻿@using RL.Models;
+
+@model IEnumerable<AddFacNumAndBldAbb>
+
+
+@{
+    ViewBag.Title = "UpdateFacNumberandBldAbb";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateFacNumberandBldAbb</h2>
+
+<body>
+    <div>
+        <p>This program updates the Building Abbreviation and Facility Number via a CSV file </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>RoomBaseID</th>
+                    <th>Room</th>
+                    <th>Building</th>
+                    <th>FacNumber</th>
+                    <th>Abb</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>9038</td>
+                    <td>RiverBend 1025</td>
+                    <td>NGW Riverbend Hall</td>
+                    <td>1300</td>
+                    <td>NGRV</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>9039</td>
+                    <td>Riverbend 1019</td>
+                    <td>NGW Riverbend Hall</td>
+                    <td>1300</td>
+                    <td>NGRV</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>9040</td>
+                    <td>Riverbend 1015</td>
+                    <td>NGW Riverbend Hall</td>
+                    <td>1300</td>
+                    <td>NGRV</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateFacNumberandBldAbb", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>RoomBaseID</th>
+                    <th>Room</th>
+                    <th>Building</th>
+                    <th>FacNumber</th>
+                    <th>Abb</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (AddFacNumAndBldAbb R in Model)
+                {
+                    <tr>
+                        <td>@R.RoomBaseID</td>
+                        <td>@R.Room</td>
+                        <td>@R.Building</td>
+                        <td>@R.FacNumber</td>
+                        <td>@R.Abb</td>
+                        <td>@R.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    <div>
+        ViewData["a"]
+    </div>
+    <div>
+        ViewData["b"]
+    </div>
+</body>

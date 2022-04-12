@@ -1,0 +1,99 @@
+﻿@using RL.Models;
+
+@model IEnumerable<AddAppEC>
+
+@{
+    ViewBag.Title = "AddAppEC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddAppEC</h2>
+
+<body>
+    <div>
+        <p>This program  adds the Enrollment Class to the Entry Application via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>EntryApplicationID</th>
+                <th>EntryID</th>
+                <th>EnrollmentClass</th>
+                <th>Classification</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+                <td>11129</td>
+                <td>60234</td>
+                <td>1</td>
+                <td>New</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>95345</td>
+                <td>56789</td>
+                <td>3</td>
+                <td>Continuing</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>94921</td>
+                <td>1575</td>
+                <td>4</td>
+                <td>Continuing</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>164098</td>
+                <td>65444</td>
+                <td>2</td>
+                <td>New</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("AddAppEC", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+    <div>
+        @if (Model.Count() > 0)
+        {
+          
+            <table  class="table table-bordered table-bordered">
+                <tr>
+                    <th>Entry Application ID</th>
+                    <th>Entry ID</th>
+                    <th>Enrollment Class</th>
+                    <th>Classification</th>
+                    <th>Status</th>
+                </tr>
+               
+                    @foreach(AddAppEC E in Model)
+                    {
+            <tr>
+                <td>@E.EntryApplicationID</td>
+                <td>@E.EntryID</td>
+                <td>@E.EnrollmentClass</td>
+                <td>@E.Classification</td>
+                <td>@E.Status</td>
+            </tr>
+                        
+                    }
+           
+            </table>
+        }
+    </div>
+</body>

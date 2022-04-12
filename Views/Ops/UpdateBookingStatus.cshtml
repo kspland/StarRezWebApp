@@ -1,0 +1,99 @@
+﻿@using RL.Models;
+
+@{
+    ViewBag.Title = "UpdateBookingStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateBookingStatus</h2>
+<body>
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Entry Status</th>
+                <th>Description</th>
+                <th>Abbreviation</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Tentative</td>
+                <td>TENT</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Reserved</td>
+                <td>RESV</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>In Room</td>
+                <td> INRM</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>History</td>
+                <td>HIST</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Occupant</td>
+                <td>OCC</td>
+            </tr>
+
+        </table>
+    </div>
+    <div>
+        @using (Html.BeginForm("UpdateBookingStatus", "Ops", FormMethod.Post, new { enctype = "multipart.for-data" }))
+        {
+            <table>
+                <tr>
+                    <td>Enter Booking ID of Booking to modify</td>
+                    <td><input type="text" name="bookingid" /></td>
+                </tr>
+                <tr>
+                    <td> Enter New Entry Status number</td>
+                    <td><input type="text" name="entrystatus" /></td>
+                </tr>
+                <tr>
+                    <td>Enter  Your UserName</td>
+                    <td> <input type="text" name="username" /></td>
+                </tr>
+                <tr>
+                    <td>Enter Your password</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="submit" /></td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    <div>
+
+    </div>
+    <div>
+        <br />
+        <hr />
+        <p> Job Status: @ViewData["A"]</p>
+       
+    </div>
+    <div>
+        <p>----------------------------</p>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @ViewData["B"]
+    </div>
+    <div>
+        <p>----------------------------</p>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @ViewData["c"]
+    </div>
+
+</body>

@@ -1,0 +1,111 @@
+﻿@using RL.Models;
+
+@model IEnumerable<AppC19>
+
+
+
+
+@{
+    ViewBag.Title = "UpdateAppC19";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateAppC19</h2>
+
+<body>
+    <div>
+        <p>This program  updates the Cancellation information on an Application via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>EntryApplicationID</th>
+                    <th>EntryID</th>
+                    <th>AppStatusID</th>
+                    <th>CheckOut</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>113996</td>
+                    <td>51129</td>
+                    <td>1</td>
+                    <td>2/14/2020</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>114593</td>
+                    <td>56614</td>
+                    <td>10</td>
+                    <td>3-13-2020</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>118543</td>
+                    <td>1607</td>
+                    <td>9</td>
+                    <td>3-1-2020</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>112425</td>
+                    <td>40533</td>
+                    <td>15</td>
+                    <td>3-1-2020</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("UpdateAppC19", "IS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>EntryAppication ID</th>
+                    <th>Entry ID</th>
+                    <th>App Status ID</th>
+                    <th>Check Out Date </th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (AppC19 A in Model)
+                {
+                    <tr>
+                        <td>@A.EntryApplicationID</td>
+                        <td>@A.EntryID</td>
+                        <td>@A.AppStatusID</td>
+                        <td>@A.CheckOut</td>
+                        <td>@A.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    <div>
+        @ViewData["a"]
+       
+    </div>
+    <div>
+       @ViewData["b"]
+    </div>
+</body>

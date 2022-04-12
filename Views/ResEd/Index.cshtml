@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<body>
+    <div>
+        <p>Res Life Res Ed site used to support functions within StarRez.</p>
+        <p>A table below contains the applications supported for Residential Education.</p>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Program</th>
+                <th>Application</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Update Move In Time on RoomSpace</td>
+                <td>@Html.ActionLink("Upate Move In Time on RoomSpace", "UpdateMoveInRoomSpace", "ResEd")</td>
+                <td>Update Move In Time on Roomspace detail for CustomString 5(Move In Time) from CSV Template of RoomSpace Detail Data</td>
+            </tr>
+            <tr>
+                <td>Update FloorName on CustomString1 of the Room level</td>
+                <td>@Html.ActionLink("Update FloorName on RoomBase Level", "UpdateFloorNameRoomBase", "ResEd")</td>
+                <td>Update FloorName on RoomBase CustomString1 via CSV Template</td>
+            </tr>
+            <tr>
+                <td>Add Room Inventory on the Bed Space</td>
+                <td>@Html.ActionLink("Add Room Inventory to the RoomSpace Inventory table", "AddRoomInventory", "ResEd")</>
+                <td>Add Room Inventory via a CSV file to the RoomSpaceInventory Table</td>
+            </tr>
+
+            <tr>
+                <td>Add Maximo Location</td>
+                <td>@Html.ActionLink("Add Maximo Location to CustomString6 on RoomSpace", "AddMaximoLocation", "ResEd")</>
+                <td>Add Add Maximo Location via a CSV file to the RoomSpace Table </td>
+            </tr>
+
+        </table>
+    </div>
+</body>

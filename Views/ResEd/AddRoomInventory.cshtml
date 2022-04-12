@@ -1,0 +1,127 @@
+﻿@using RL.Models;
+
+@model IEnumerable<roomInventory>
+
+@{
+    ViewBag.Title = "AddRoomInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddRoomInventory</h2>
+
+<body>
+    <div>
+        <p>This program  adds inventory to the roomspace for inspections via a CSV file. </p>
+        <p>An example of how the CSV file is listed below. </p>
+        <p><Bold>The Column names must be named exactly like the example and in the same order.</Bold></p>
+    </div>
+
+    <div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>RoomSpaceID</th>
+                    <th>RoomSpaceInventory</th>
+                    <th>RoomSpaceInventoryCondition</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>122</td>
+                    <td>1</td>
+                    <td>H/S - Appliances</td>
+                    <td>Azalea 1118A-1</td>
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>108</td>
+                    <td>1</td>
+                    <td>Shower</td>
+                    <td>Azalea 1118A-1</td>
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>41</td>
+                    <td>1</td>
+                    <td>Fire Equipment</td>
+                    <td>Azalea 1118A-1</td>
+
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>123</td>
+                    <td>1</td>
+                    <td>H/S - Cleanliness</td>
+                    <td>Azalea 1118A-1</td>
+
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>7</td>
+                    <td>1</td>
+                    <td>Bedframe</td>
+                    <td>Azalea 1118A-1</td>
+                </tr>
+                <tr>
+                    <td>14140</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Sink Area/Vanity</td>
+                    <td>Azalea 1118A-1</td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div>
+        <hr />
+        <br />
+        @using (Html.BeginForm("AddRoomInventory", "ResEd", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="postedFile" />
+            <input type="submit" value="Import" />
+            <p>Enter your PawsID <input type="text" name="username" /></p>
+            <p>Enter your Password<input type="password" name="password" /></p>
+        }
+    </div>
+
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <th>RoomSpaceID</th>
+                    <th>RoomSpaceInventory</th>
+                    <th>RoomSpaceInventoryCondition</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (roomInventory R in Model)
+                {
+                    <tr>
+                        <td>@R.RoomSpaceID</td>
+                        <td>@R.RoomSpaceInventory</td>
+                        <td>@R.RoomSpaceInventoryCondition</td>
+                        <td>@R.Description</td>
+                        <td>@R.Location</td>
+                        <td>@R.Status</td>
+                    </tr>
+
+                }
+
+            </table>
+        }
+    </div>
+    <div>
+        @ViewData["A"]
+    </div>
+</body>
